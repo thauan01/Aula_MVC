@@ -1,6 +1,6 @@
-import { TaskService } from "../services/TaskService.js";
 import type { Request, Response } from "express";
 import { TaskView } from "../views/TaskView.js";
+import { TaskService } from "../services/TaskService.js";
 
 export class TaskController {
     private service = new TaskService();
@@ -9,6 +9,7 @@ export class TaskController {
         const tasks = this.service.getAll();
         TaskView.success(res, tasks);
     }
+
 
     getOne(req: Request, res: Response): void {
         try {
